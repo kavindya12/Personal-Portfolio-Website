@@ -1,0 +1,52 @@
+import { AnimatePresence, motion } from 'framer-motion'
+import { useEffect } from 'react'
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
+import { Footer } from './components/Footer'
+import { Navbar } from './components/Navbar'
+import { easeOut } from './lib/motion'
+import { Home } from './pages/Home'
+import { ProjectDetail } from './pages/ProjectDetail'
+
+function ScrollManager() {
+  const location = useLocation()
+
+  useEffect(() => {
+    if (!location.hash) {
+      window.scrollTo({ top: 0, behavior: 'auto' })
+    }
+  }, [location.pathname, location.hash])
+
+  return null
+}
+
+function AnimatedRoutes() {
+  const location = useLocation()
+
+  return (
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={location.pathname}
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -12 }}
+        transition={{ duration: 0.35, ease: easeOut }}
+      >
+        <Routes location={location}>
+          <Route path="/" element={<Home />} />
+          <Route path="/projects/:slug" element={<ProjectDetail />} />
+        </Routes>
+      </motion.div>
+    </AnimatePresence>
+  )
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <ScrollManager />
+      <Navbar />
+      <AnimatedRoutes />
+      <Footer />
+    </BrowserRouter>
+  )
+}

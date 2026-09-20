@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 800" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="640" y2="800">
+      <stop offset="0%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#0B0F19"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#2563EB" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#2563EB" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="640" height="800" fill="url(#bg)"/>
+  <rect width="640" height="800" fill="url(#glow)"/>
+  <circle cx="320" cy="330" r="132" fill="#0B0F19" stroke="#2563EB" stroke-width="2"/>
+  <text x="320" y="350" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="72" font-weight="700" fill="#F9FAFB">KW</text>
+  <text x="320" y="540" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="600" fill="#F9FAFB">Kavindya Wickramarachchi</text>
+  <text x="320" y="572" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="16" fill="#9CA3AF">Frontend Developer</text>
+  <text x="320" y="720" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" fill="#6B7280">Replace with public/profile.jpg</text>
+</svg>

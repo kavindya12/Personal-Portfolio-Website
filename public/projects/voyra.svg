@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" fill="none">
+  <rect width="1600" height="1000" fill="#0B0F19"/>
+  <rect x="48" y="40" width="1504" height="920" rx="24" fill="#111827" stroke="#1F2937"/>
+  <text x="88" y="110" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700" fill="#F9FAFB">Voyra</text>
+  <text x="180" y="110" font-family="Inter, Arial, sans-serif" font-size="16" fill="#9CA3AF">Curated tours</text>
+  <rect x="1180" y="78" width="320" height="44" rx="22" fill="#0B0F19" stroke="#1F2937"/>
+  <text x="1204" y="106" font-family="Inter, Arial, sans-serif" font-size="14" fill="#9CA3AF">Search destinations</text>
+  <rect x="88" y="160" width="720" height="360" rx="20" fill="#0B0F19"/>
+  <rect x="88" y="160" width="720" height="360" rx="20" fill="#2563EB" fill-opacity="0.18"/>
+  <text x="120" y="320" font-family="Inter, Arial, sans-serif" font-size="36" font-weight="700" fill="#F9FAFB">Discover Sri Lanka</text>
+  <text x="120" y="360" font-family="Inter, Arial, sans-serif" font-size="16" fill="#D1D5DB">Hill country, coast and city itineraries</text>
+  <rect x="120" y="390" width="150" height="40" rx="20" fill="#2563EB"/>
+  <text x="147" y="415" font-family="Inter, Arial, sans-serif" font-size="14" fill="#FFFFFF">View tour</text>
+  <g>
+    <rect x="840" y="160" width="320" height="360" rx="20" fill="#0B0F19" stroke="#1F2937"/>
+    <rect x="840" y="160" width="320" height="180" fill="#1D4ED8" fill-opacity="0.35"/>
+    <text x="864" y="390" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="600" fill="#F9FAFB">Coastal Escape</text>
+    <text x="864" y="418" font-family="Inter, Arial, sans-serif" font-size="14" fill="#9CA3AF">7 days � inquiry ready</text>
+  </g>
+  <g>
+    <rect x="1184" y="160" width="320" height="360" rx="20" fill="#0B0F19" stroke="#1F2937"/>
+    <rect x="1184" y="160" width="320" height="180" fill="#1E3A8A" fill-opacity="0.55"/>
+    <text x="1208" y="390" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="600" fill="#F9FAFB">Tea Country</text>
+    <text x="1208" y="418" font-family="Inter, Arial, sans-serif" font-size="14" fill="#9CA3AF">5 days � small group</text>
+  </g>
+  <g>
+    <rect x="88" y="552" width="460" height="360" rx="20" fill="#0B0F19" stroke="#1F2937"/>
+    <text x="120" y="610" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="600" fill="#F9FAFB">Filters</text>
+    <rect x="120" y="640" width="120" height="32" rx="16" fill="#2563EB"/>
+    <text x="148" y="661" font-family="Inter, Arial, sans-serif" font-size="13" fill="#FFFFFF">Adventure</text>
+    <rect x="256" y="640" width="100" height="32" rx="16" fill="#1F2937"/>
+    <text x="280" y="661" font-family="Inter, Arial, sans-serif" font-size="13" fill="#9CA3AF">Wellness</text>
+    <rect x="372" y="640" width="100" height="32" rx="16" fill="#1F2937"/>
+    <text x="400" y="661" font-family="Inter, Arial, sans-serif" font-size="13" fill="#9CA3AF">Culture</text>
+  </g>
+  <g>
+    <rect x="572" y="552" width="880" height="360" rx="20" fill="#0B0F19" stroke="#1F2937"/>
+    <text x="604" y="610" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="600" fill="#F9FAFB">Trip inquiry</text>
+    <rect x="604" y="640" width="380" height="48" rx="12" fill="#111827" stroke="#1F2937"/>
+    <rect x="1004" y="640" width="380" height="48" rx="12" fill="#111827" stroke="#1F2937"/>
+    <rect x="604" y="708" width="780" height="100" rx="12" fill="#111827" stroke="#1F2937"/>
+    <rect x="604" y="832" width="160" height="44" rx="22" fill="#2563EB"/>
+    <text x="640" y="860" font-family="Inter, Arial, sans-serif" font-size="14" fill="#FFFFFF">Send inquiry</text>
+  </g>
+</svg>
