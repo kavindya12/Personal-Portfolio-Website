@@ -4,9 +4,9 @@ export const site = {
   displayName: 'Kavindya Wickramarachchi',
   shortName: 'KAVINDYA',
   role: 'Frontend Developer | React & React Native',
-  headline: 'I build modern web experiences with React.',
+  headline: 'Building ideas into digital experiences.',
   summary:
-    'Frontend Developer focused on building responsive, user-friendly applications with React, TypeScript and modern web technologies.',
+    "I'm Kavindya Wickramarachchi, a Software Engineering graduate building modern web applications with a focus on frontend development, user experience, and full-stack solutions.",
   availability: 'Available for frontend opportunities',
   location: 'Sri Lanka',
   // Add real contact URLs to show Email / LinkedIn / GitHub buttons.

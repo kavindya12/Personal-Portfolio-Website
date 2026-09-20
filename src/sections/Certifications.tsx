@@ -7,7 +7,7 @@ import { hasUrl } from '../lib/cn'
 
 export function Certifications() {
   return (
-    <section id="certifications" className="border-t border-white/10 px-6 py-24 md:py-32">
+    <section id="certifications" className="border-t border-white/10 px-4 py-20 sm:px-6 md:py-32">
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <SectionTitle

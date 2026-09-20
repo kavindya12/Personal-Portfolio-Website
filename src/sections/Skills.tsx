@@ -4,7 +4,7 @@ import { skillGroups } from '../data/skills'
 
 export function Skills() {
   return (
-    <section id="skills" className="border-t border-white/10 px-6 py-24 md:py-32">
+    <section id="skills" className="border-t border-white/10 px-4 py-20 sm:px-6 md:py-32">
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <SectionTitle index="05" eyebrow="Stack" title="Tools I work with" />

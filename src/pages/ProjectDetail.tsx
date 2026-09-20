@@ -26,7 +26,7 @@ export function ProjectDetail() {
   ]
 
   return (
-    <main className="px-6 pt-28 pb-24">
+    <main className="min-w-0 overflow-x-clip px-4 pt-28 pb-24 sm:px-6">
       <article className="mx-auto max-w-4xl">
         <Link
           to="/#projects"
@@ -40,7 +40,7 @@ export function ProjectDetail() {
           <p className="mt-8 text-xs font-semibold tracking-[0.22em] text-accent uppercase">
             {project.tagline}
           </p>
-          <h1 className="font-display mt-3 text-4xl font-semibold tracking-tight md:text-6xl">
+          <h1 className="font-display mt-3 text-3xl font-semibold tracking-tight md:text-6xl">
             {project.title}
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-7 text-muted">

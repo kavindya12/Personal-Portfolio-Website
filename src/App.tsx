@@ -28,6 +28,7 @@ function AnimatedRoutes() {
     <AnimatePresence mode="wait">
       <motion.div
         key={location.pathname}
+        className="min-w-0 max-w-full"
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -12 }}
@@ -51,7 +52,7 @@ export default function App() {
         <Particles quantity={48} color="#93c5fd" ease={70} staticity={60} />
       </div>
       <Navbar />
-      <div className="relative z-10">
+      <div className="relative z-10 min-w-0 max-w-full overflow-x-clip">
         <AnimatedRoutes />
         <Footer />
       </div>

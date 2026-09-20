@@ -35,7 +35,7 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
             <p className="text-[11px] tracking-[0.22em] text-blue-300 uppercase">
               Featured
             </p>
-            <h3 className="font-display mt-2 text-3xl font-medium md:text-5xl">
+            <h3 className="font-display mt-2 text-2xl font-medium md:text-5xl">
               {project.title}
             </h3>
             <p className="mt-2 max-w-xl text-sm text-slate-300 md:text-base">

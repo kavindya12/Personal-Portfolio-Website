@@ -25,7 +25,7 @@ export function Home() {
   }, [location.hash])
 
   return (
-    <main>
+    <main className="min-w-0 max-w-full overflow-x-clip">
       <Hero />
       <About />
       <WhatIDo />

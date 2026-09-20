@@ -4,7 +4,7 @@ import { services } from '../data/site'
 
 export function WhatIDo() {
   return (
-    <section className="bg-[#0a1220] px-6 py-24 md:py-32">
+    <section className="bg-[#0a1220] px-4 py-20 sm:px-6 md:py-32">
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <SectionTitle
@@ -20,7 +20,7 @@ export function WhatIDo() {
                 <span className="font-display text-3xl font-medium text-white/20 transition group-hover:text-accent">
                   0{index + 1}
                 </span>
-                <h3 className="font-display text-2xl font-medium text-foreground">
+                <h3 className="font-display text-xl font-medium text-foreground md:text-2xl">
                   {service.title}
                 </h3>
                 <p className="max-w-xl text-base leading-7 text-slate-300">

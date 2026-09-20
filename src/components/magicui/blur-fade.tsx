@@ -1,5 +1,6 @@
 import { motion, useReducedMotion, type Variants } from 'framer-motion'
 import { useRef, type ReactNode } from 'react'
+import { cn } from '../../lib/cn'
 
 type BlurFadeProps = {
   children: ReactNode
@@ -41,13 +42,13 @@ export function BlurFade({
   }
 
   if (reduceMotion) {
-    return <div className={className}>{children}</div>
+    return <div className={cn('min-w-0', className)}>{children}</div>
   }
 
   return (
     <motion.div
       ref={ref}
-      className={className}
+      className={cn('min-w-0', className)}
       initial="hidden"
       whileInView={inView ? 'visible' : undefined}
       animate={inView ? undefined : 'visible'}

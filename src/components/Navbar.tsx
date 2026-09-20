@@ -66,22 +66,22 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition duration-500 ${
+      className={`fixed inset-x-0 top-0 z-50 w-full max-w-full transition duration-500 ${
         scrolled || open
           ? 'border-b border-white/10 bg-[#070b14]/75 backdrop-blur-xl'
           : 'border-b border-transparent bg-transparent'
       }`}
     >
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6 md:h-[4.5rem]">
+      <div className="mx-auto flex h-16 w-full min-w-0 max-w-6xl items-center justify-between gap-3 px-4 sm:px-6 md:h-[4.5rem]">
         <Link
           to="/"
           onClick={() => setOpen(false)}
-          className="font-display text-sm font-semibold tracking-[0.26em] text-foreground transition hover:text-accent"
+          className="font-display min-w-0 truncate text-sm font-semibold tracking-[0.16em] text-foreground transition hover:text-accent sm:tracking-[0.26em]"
         >
           {site.shortName}
         </Link>
 
-        <nav className="hidden items-center gap-7 md:flex">
+        <nav className="nav-desktop hidden items-center gap-7 md:flex">
           {navItems.map((item) => (
             <button
               key={item.hash}
@@ -104,7 +104,7 @@ export function Navbar() {
 
         <button
           type="button"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-foreground md:hidden"
+          className="nav-toggle ml-auto inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/15 bg-white/5 text-foreground md:hidden"
           aria-label={open ? 'Close menu' : 'Open menu'}
           onClick={() => setOpen((value) => !value)}
         >
@@ -121,7 +121,7 @@ export function Navbar() {
             transition={{ duration: 0.28, ease: easeOut }}
             className="overflow-hidden border-t border-white/10 bg-[#070b14]/95 md:hidden"
           >
-            <div className="flex flex-col gap-5 px-6 py-6">
+            <div className="flex flex-col gap-5 px-4 py-6 sm:px-6">
               {navItems.map((item) => (
                 <button
                   key={item.hash}

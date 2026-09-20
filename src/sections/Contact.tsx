@@ -1,5 +1,4 @@
 import { Button } from '../components/Button'
-import { TextAnimate } from '../components/magicui/text-animate'
 import { Reveal } from '../components/Reveal'
 import { SocialLinks } from '../components/SocialLinks'
 import { site } from '../data/site'
@@ -10,20 +9,16 @@ export function Contact() {
     hasUrl(site.email) || hasUrl(site.linkedin) || hasUrl(site.github)
 
   return (
-    <section id="contact" className="relative overflow-hidden px-6 py-28 md:py-36">
+    <section id="contact" className="relative overflow-hidden px-4 py-24 sm:px-6 md:py-36">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.16),transparent_58%)]" />
       <Reveal>
         <div className="relative mx-auto max-w-4xl text-center">
           <p className="mb-5 text-[11px] font-medium tracking-[0.28em] text-accent uppercase">
             Contact
           </p>
-          <TextAnimate
-            as="h2"
-            by="word"
-            className="font-display text-4xl font-medium tracking-tight text-foreground md:text-7xl md:leading-[0.95]"
-          >
+          <h2 className="font-display text-[1.85rem] leading-tight font-medium tracking-tight text-foreground sm:text-4xl md:text-7xl md:leading-[0.95]">
             {site.contactHeading}
-          </TextAnimate>
+          </h2>
           <p className="mx-auto mt-6 max-w-xl text-base leading-7 text-slate-300">
             {site.contactBody}
           </p>

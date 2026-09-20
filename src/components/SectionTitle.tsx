@@ -18,14 +18,14 @@ export function SectionTitle({
   return (
     <div className={`relative mb-16 flex max-w-3xl flex-col ${alignment}`}>
       {index ? (
-        <span className="pointer-events-none absolute -top-10 left-0 font-display text-[6.5rem] leading-none font-medium text-white/5 select-none md:-top-12 md:text-[8rem]">
+        <span className="pointer-events-none absolute -top-8 left-0 font-display text-[3.5rem] leading-none font-medium text-white/5 select-none md:-top-12 md:text-[8rem]">
           {index}
         </span>
       ) : null}
       <p className="relative text-[11px] font-medium tracking-[0.28em] text-accent uppercase">
         {eyebrow}
       </p>
-      <h2 className="font-display relative mt-4 text-4xl font-medium tracking-tight text-foreground md:text-5xl md:leading-[1.1]">
+      <h2 className="font-display relative mt-4 text-[1.75rem] font-medium tracking-tight text-foreground md:text-5xl md:leading-[1.1]">
         {title}
       </h2>
       {description ? (

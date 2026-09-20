@@ -4,7 +4,7 @@ import { education } from '../data/education'
 
 export function Education() {
   return (
-    <section id="education" className="bg-[#0a1220] px-6 py-24 md:py-32">
+    <section id="education" className="bg-[#0a1220] px-4 py-20 sm:px-6 md:py-32">
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <SectionTitle index="06" eyebrow="Education" title="Academic background" />

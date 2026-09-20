@@ -27,30 +27,30 @@ function AnimatedStat({ value, label }: { value: string; label: string }) {
 
 export function About() {
   return (
-    <section id="about" className="relative overflow-hidden border-t border-white/10 px-6 py-24 md:py-32">
+    <section id="about" className="relative overflow-hidden border-t border-white/10 px-4 py-20 sm:px-6 md:py-32">
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute top-0 right-0 h-[28rem] w-[28rem] translate-x-1/4 -translate-y-1/4 rounded-full bg-accent/10 blur-3xl"
+        className="pointer-events-none absolute top-0 right-0 h-64 w-64 translate-x-1/4 -translate-y-1/4 rounded-full bg-accent/10 blur-3xl md:h-[28rem] md:w-[28rem]"
       />
 
       <div className="relative mx-auto grid w-full min-w-0 max-w-6xl gap-16 lg:grid-cols-[minmax(0,1fr)_360px] lg:gap-24">
         <Reveal className="min-w-0">
           <div className="relative min-w-0">
-            <span className="pointer-events-none absolute -top-10 left-0 font-display text-[6.5rem] leading-none font-medium text-white/5 select-none md:-top-12 md:text-[8rem]">
+            <span className="pointer-events-none absolute -top-8 left-0 font-display text-[4.25rem] leading-none font-medium text-white/5 select-none md:-top-12 md:text-[8rem]">
               01
             </span>
             <p className="relative text-[11px] font-medium tracking-[0.28em] text-accent uppercase">
               About
             </p>
-            <h2 className="font-display relative mt-4 max-w-xl text-[2.15rem] leading-[1.1] font-medium tracking-tight text-balance text-foreground md:text-5xl">
+            <h2 className="font-display relative mt-4 max-w-xl text-[1.75rem] leading-[1.15] font-medium tracking-tight text-foreground md:text-5xl">
               Focused on
               <br />
               the frontend.
             </h2>
-            <p className="font-display relative mt-10 max-w-xl text-xl leading-snug font-medium tracking-tight text-pretty text-foreground md:text-[1.85rem] md:leading-[1.25]">
+            <p className="font-display relative mt-8 max-w-xl min-w-0 text-lg leading-snug font-medium tracking-tight text-foreground md:mt-10 md:text-[1.85rem] md:leading-[1.25]">
               {lead}
             </p>
-            <div className="mt-8 max-w-xl space-y-5 text-base leading-8 text-slate-300">
+            <div className="mt-8 max-w-xl min-w-0 space-y-5 text-base leading-8 text-slate-300">
               {rest.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}

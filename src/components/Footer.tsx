@@ -43,17 +43,17 @@ export function Footer() {
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-28 left-1/2 h-52 w-[38rem] -translate-x-1/2 rounded-full bg-accent/10 blur-3xl"
+        className="pointer-events-none absolute -top-28 left-1/2 h-52 w-full max-w-lg -translate-x-1/2 rounded-full bg-accent/10 blur-3xl"
       />
 
-      <div className="relative mx-auto max-w-6xl px-6 pt-16 md:pt-20">
-        <div className="grid gap-12 md:grid-cols-[minmax(0,1.4fr)_1fr_1fr] md:gap-16">
-          <div>
+      <div className="relative mx-auto w-full min-w-0 max-w-6xl px-4 pt-16 sm:px-6 md:pt-20">
+        <div className="grid min-w-0 gap-12 md:grid-cols-[minmax(0,1.4fr)_1fr_1fr] md:gap-16">
+          <div className="min-w-0">
             <p className="font-display text-sm font-semibold tracking-[0.26em] text-foreground">
               {site.shortName}
             </p>
             <p className="mt-5 max-w-sm text-2xl leading-snug font-medium tracking-tight text-foreground md:text-[1.75rem]">
-              Building product interfaces in React.
+              {site.headline}
             </p>
             <p className="mt-4 max-w-xs text-sm leading-7 text-slate-300">
               {site.footerTagline}
@@ -101,7 +101,7 @@ export function Footer() {
 
         <p
           aria-hidden="true"
-          className="mt-14 select-none overflow-hidden font-display text-[18vw] leading-[0.78] font-medium tracking-[-0.07em] text-white/5 md:mt-16 md:text-[9.5rem]"
+          className="mt-14 max-w-full truncate select-none overflow-hidden font-display text-[16vw] leading-[0.78] font-medium tracking-[-0.07em] text-white/5 md:mt-16 md:text-[9.5rem]"
         >
           {site.shortName}
         </p>
