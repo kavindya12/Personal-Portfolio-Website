@@ -1,6 +1,5 @@
-import { motion, useReducedMotion } from 'framer-motion'
+import { BlurFade } from './magicui/blur-fade'
 import type { ReactNode } from 'react'
-import { easeOut } from '../lib/motion'
 
 type RevealProps = {
   children: ReactNode
@@ -9,17 +8,9 @@ type RevealProps = {
 }
 
 export function Reveal({ children, className, delay = 0 }: RevealProps) {
-  const reduceMotion = useReducedMotion()
-
   return (
-    <motion.div
-      className={className}
-      initial={reduceMotion ? false : { opacity: 0, y: 32 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-80px' }}
-      transition={{ duration: 0.7, ease: easeOut, delay }}
-    >
+    <BlurFade className={className} delay={delay} inView offset={22} blur="10px" duration={0.65}>
       {children}
-    </motion.div>
+    </BlurFade>
   )
 }

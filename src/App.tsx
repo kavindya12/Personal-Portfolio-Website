@@ -2,6 +2,8 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { useEffect } from 'react'
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
 import { Footer } from './components/Footer'
+import { MouseGlow } from './components/magicui/mouse-glow'
+import { Particles } from './components/magicui/particles'
 import { Navbar } from './components/Navbar'
 import { easeOut } from './lib/motion'
 import { Home } from './pages/Home'
@@ -44,9 +46,15 @@ export default function App() {
   return (
     <BrowserRouter>
       <ScrollManager />
+      <MouseGlow />
+      <div className="pointer-events-none fixed inset-0 z-0">
+        <Particles quantity={48} color="#93c5fd" ease={70} staticity={60} />
+      </div>
       <Navbar />
-      <AnimatedRoutes />
-      <Footer />
+      <div className="relative z-10">
+        <AnimatedRoutes />
+        <Footer />
+      </div>
     </BrowserRouter>
   )
 }

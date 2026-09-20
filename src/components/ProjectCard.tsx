@@ -1,8 +1,10 @@
+import { motion } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import type { Project } from '../data/projects'
 import { hasUrl } from '../lib/cn'
 import { GitHubIcon } from './BrandIcons'
+import { BorderBeam } from './magicui/border-beam'
 
 type ProjectCardProps = {
   project: Project
@@ -12,7 +14,11 @@ type ProjectCardProps = {
 export function ProjectCard({ project, featured = false }: ProjectCardProps) {
   if (featured) {
     return (
-      <article className="group overflow-hidden rounded-md border border-white/10">
+      <motion.article
+        whileHover={{ y: -4 }}
+        transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+        className="group relative overflow-hidden rounded-md border border-white/10"
+      >
         <Link
           to={`/projects/${project.slug}`}
           className={`relative block overflow-hidden ${
@@ -61,12 +67,17 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
             ) : null}
           </div>
         </div>
-      </article>
+        <BorderBeam size={140} duration={10} borderWidth={1.25} />
+      </motion.article>
     )
   }
 
   return (
-    <article className="group overflow-hidden rounded-md border border-white/10">
+    <motion.article
+      whileHover={{ y: -4 }}
+      transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+      className="group relative overflow-hidden rounded-md border border-white/10"
+    >
       <Link
         to={`/projects/${project.slug}`}
         className={`relative block overflow-hidden ${
@@ -125,6 +136,7 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
           ) : null}
         </div>
       </div>
-    </article>
+      <BorderBeam size={90} duration={11} delay={1.2} borderWidth={1} />
+    </motion.article>
   )
 }

@@ -16,7 +16,7 @@ export function WhatIDo() {
         <div>
           {services.map((service, index) => (
             <Reveal key={service.title} delay={index * 0.05}>
-              <article className="group grid gap-3 border-t border-white/10 py-8 last:border-b md:grid-cols-[88px_220px_1fr] md:items-start md:gap-8">
+              <article className="group grid gap-3 border-t border-white/10 py-8 transition duration-300 last:border-b hover:bg-white/[0.02] md:grid-cols-[88px_220px_1fr] md:items-start md:gap-8">
                 <span className="font-display text-3xl font-medium text-white/20 transition group-hover:text-accent">
                   0{index + 1}
                 </span>

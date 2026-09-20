@@ -1,4 +1,5 @@
 import { Button } from '../components/Button'
+import { TextAnimate } from '../components/magicui/text-animate'
 import { Reveal } from '../components/Reveal'
 import { SocialLinks } from '../components/SocialLinks'
 import { site } from '../data/site'
@@ -16,9 +17,13 @@ export function Contact() {
           <p className="mb-5 text-[11px] font-medium tracking-[0.28em] text-accent uppercase">
             Contact
           </p>
-          <h2 className="font-display text-4xl font-medium tracking-tight text-foreground md:text-7xl md:leading-[0.95]">
+          <TextAnimate
+            as="h2"
+            by="word"
+            className="font-display text-4xl font-medium tracking-tight text-foreground md:text-7xl md:leading-[0.95]"
+          >
             {site.contactHeading}
-          </h2>
+          </TextAnimate>
           <p className="mx-auto mt-6 max-w-xl text-base leading-7 text-slate-300">
             {site.contactBody}
           </p>

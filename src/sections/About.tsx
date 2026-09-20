@@ -1,79 +1,92 @@
-import { useEffect, useRef, useState } from 'react'
+import { NumberTicker } from '../components/magicui/number-ticker'
 import { Reveal } from '../components/Reveal'
-import { SectionTitle } from '../components/SectionTitle'
+import { experience } from '../data/experience'
 import { site } from '../data/site'
+
+const currentRole = experience[0]
+const [lead, ...rest] = site.about
 
 function AnimatedStat({ value, label }: { value: string; label: string }) {
   const numericMatch = /^(\d+)(.*)$/.exec(value)
   const target = numericMatch ? Number(numericMatch[1]) : null
   const suffix = numericMatch?.[2] ?? ''
-  const [count, setCount] = useState(0)
-  const started = useRef(false)
-  const nodeRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    if (target === null) return
-    const el = nodeRef.current
-    if (!el) return
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry.isIntersecting || started.current) return
-        started.current = true
-        const start = performance.now()
-        const tick = (now: number) => {
-          const progress = Math.min((now - start) / 900, 1)
-          setCount(Math.round(target * progress))
-          if (progress < 1) requestAnimationFrame(tick)
-        }
-        requestAnimationFrame(tick)
-      },
-      { threshold: 0.5 },
-    )
-
-    observer.observe(el)
-    return () => observer.disconnect()
-  }, [target])
 
   return (
-    <div ref={nodeRef} className="px-1 py-4 md:px-6 md:py-6">
-      <p className="font-display text-4xl font-medium tracking-tight text-foreground md:text-5xl">
-        {target === null ? value : `${String(count).padStart(2, '0')}${suffix}`}
+    <div className="flex flex-col gap-1 py-5 md:flex-row md:items-end md:justify-between md:gap-4">
+      <p className="text-sm leading-6 text-slate-400">{label}</p>
+      <p className="font-display text-3xl font-medium tracking-tight text-foreground md:text-right md:text-4xl">
+        {target === null ? (
+          value
+        ) : (
+          <NumberTicker value={target} padStart={2} suffix={suffix} />
+        )}
       </p>
-      <p className="mt-2 text-sm text-slate-400">{label}</p>
     </div>
   )
 }
 
 export function About() {
   return (
-    <section id="about" className="border-t border-white/10 px-6 py-24 md:py-32">
-      <div className="mx-auto max-w-6xl">
-        <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
-          <Reveal>
-            <SectionTitle
-              index="01"
-              eyebrow="About"
-              title="A little about me"
-            />
-            <div className="space-y-5 text-base leading-8 text-slate-300">
-              {site.about.map((paragraph) => (
+    <section id="about" className="relative overflow-hidden border-t border-white/10 px-6 py-24 md:py-32">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute top-0 right-0 h-[28rem] w-[28rem] translate-x-1/4 -translate-y-1/4 rounded-full bg-accent/10 blur-3xl"
+      />
+
+      <div className="relative mx-auto grid w-full min-w-0 max-w-6xl gap-16 lg:grid-cols-[minmax(0,1fr)_360px] lg:gap-24">
+        <Reveal className="min-w-0">
+          <div className="relative min-w-0">
+            <span className="pointer-events-none absolute -top-10 left-0 font-display text-[6.5rem] leading-none font-medium text-white/5 select-none md:-top-12 md:text-[8rem]">
+              01
+            </span>
+            <p className="relative text-[11px] font-medium tracking-[0.28em] text-accent uppercase">
+              About
+            </p>
+            <h2 className="font-display relative mt-4 max-w-xl text-[2.15rem] leading-[1.1] font-medium tracking-tight text-balance text-foreground md:text-5xl">
+              Focused on
+              <br />
+              the frontend.
+            </h2>
+            <p className="font-display relative mt-10 max-w-xl text-xl leading-snug font-medium tracking-tight text-pretty text-foreground md:text-[1.85rem] md:leading-[1.25]">
+              {lead}
+            </p>
+            <div className="mt-8 max-w-xl space-y-5 text-base leading-8 text-slate-300">
+              {rest.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
             </div>
-          </Reveal>
-        </div>
-
-        <Reveal delay={0.08}>
-          <div className="mt-16 grid grid-cols-2 border-y border-white/10 md:grid-cols-4">
-            {site.aboutStats.map((stat) => (
-              <AnimatedStat
-                key={stat.label}
-                value={stat.value}
-                label={stat.label}
-              />
-            ))}
+            <ul className="mt-10 flex flex-wrap gap-x-5 gap-y-2">
+              {site.heroStack.map((item) => (
+                <li
+                  key={item}
+                  className="text-xs tracking-[0.18em] text-muted uppercase md:text-sm"
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
+        </Reveal>
+
+        <Reveal delay={0.1} className="min-w-0">
+          <aside className="w-full max-w-full min-w-0 lg:border-l lg:border-white/10 lg:pl-10">
+            <p className="text-[11px] font-medium tracking-[0.28em] text-accent uppercase">
+              Now
+            </p>
+            <p className="font-display mt-4 text-2xl font-medium tracking-tight text-foreground">
+              {currentRole.company}
+            </p>
+            <p className="mt-1 text-sm text-slate-300">{currentRole.role}</p>
+            <p className="mt-2 text-xs tracking-[0.16em] text-muted uppercase">
+              {currentRole.period}
+            </p>
+
+            <div className="mt-10 divide-y divide-white/10 border-y border-white/10">
+              {site.aboutStats.map((stat) => (
+                <AnimatedStat key={stat.label} value={stat.value} label={stat.label} />
+              ))}
+            </div>
+          </aside>
         </Reveal>
       </div>
     </section>

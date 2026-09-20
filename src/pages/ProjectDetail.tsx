@@ -1,16 +1,15 @@
-import { motion, useReducedMotion } from 'framer-motion'
 import { ArrowLeft } from 'lucide-react'
 import { Link, Navigate, useParams } from 'react-router-dom'
 import { GitHubIcon } from '../components/BrandIcons'
 import { Button } from '../components/Button'
+import { BlurFade } from '../components/magicui/blur-fade'
+import { BorderBeam } from '../components/magicui/border-beam'
 import { getProject } from '../data/projects'
 import { hasUrl } from '../lib/cn'
-import { easeOut } from '../lib/motion'
 
 export function ProjectDetail() {
   const { slug } = useParams()
   const project = slug ? getProject(slug) : undefined
-  const reduceMotion = useReducedMotion()
 
   if (!project) {
     return <Navigate to="/#projects" replace />
@@ -37,11 +36,7 @@ export function ProjectDetail() {
           Back to Work
         </Link>
 
-        <motion.div
-          initial={reduceMotion ? false : { opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: easeOut }}
-        >
+        <BlurFade>
           <p className="mt-8 text-xs font-semibold tracking-[0.22em] text-accent uppercase">
             {project.tagline}
           </p>
@@ -51,7 +46,7 @@ export function ProjectDetail() {
           <p className="mt-4 max-w-2xl text-base leading-7 text-muted">
             {project.description}
           </p>
-        </motion.div>
+        </BlurFade>
 
         <div className="mt-6 flex flex-wrap gap-3">
           {hasUrl(project.liveUrl) ? (
@@ -67,12 +62,7 @@ export function ProjectDetail() {
           ) : null}
         </div>
 
-        <motion.div
-          initial={reduceMotion ? false : { opacity: 0, scale: 0.98 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, ease: easeOut, delay: 0.1 }}
-          className="mt-10"
-        >
+        <BlurFade delay={0.1} className="relative mt-10 overflow-hidden rounded-[1.6rem]">
           {project.gallery && project.gallery.length > 1 ? (
             <div className="grid gap-4">
               {project.gallery.map((src, index) => (
@@ -97,51 +87,58 @@ export function ProjectDetail() {
               />
             </div>
           )}
-        </motion.div>
+          <BorderBeam size={160} duration={12} borderWidth={1.25} />
+        </BlurFade>
 
         <div className="mt-14 space-y-12">
-          {sections.map((section) => (
-            <section key={section.title}>
-              <h2 className="font-display text-2xl font-semibold tracking-tight">
-                {section.title}
-              </h2>
-              <p className="mt-3 text-base leading-7 text-muted">{section.body}</p>
-            </section>
+          {sections.map((section, index) => (
+            <BlurFade key={section.title} delay={index * 0.05}>
+              <section>
+                <h2 className="font-display text-2xl font-semibold tracking-tight">
+                  {section.title}
+                </h2>
+                <p className="mt-3 text-base leading-7 text-muted">{section.body}</p>
+              </section>
+            </BlurFade>
           ))}
         </div>
 
-        <section className="mt-14">
-          <h2 className="font-display text-2xl font-semibold tracking-tight">
-            Key features
-          </h2>
-          <ul className="mt-5 grid gap-3 sm:grid-cols-2">
-            {project.features.map((feature) => (
-              <li
-                key={feature}
-                className="surface rounded-xl px-4 py-3 text-sm text-muted"
-              >
-                <span className="mr-2 text-accent">✓</span>
-                {feature}
-              </li>
-            ))}
-          </ul>
-        </section>
+        <BlurFade delay={0.12}>
+          <section className="mt-14">
+            <h2 className="font-display text-2xl font-semibold tracking-tight">
+              Key features
+            </h2>
+            <ul className="mt-5 grid gap-3 sm:grid-cols-2">
+              {project.features.map((feature) => (
+                <li
+                  key={feature}
+                  className="surface rounded-xl px-4 py-3 text-sm text-muted"
+                >
+                  <span className="mr-2 text-accent">✓</span>
+                  {feature}
+                </li>
+              ))}
+            </ul>
+          </section>
+        </BlurFade>
 
-        <section className="mt-14">
-          <h2 className="font-display text-2xl font-semibold tracking-tight">
-            Technology
-          </h2>
-          <div className="mt-5 flex flex-wrap gap-2">
-            {project.stack.map((item) => (
-              <span
-                key={item}
-                className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-sm text-muted"
-              >
-                {item}
-              </span>
-            ))}
-          </div>
-        </section>
+        <BlurFade delay={0.16}>
+          <section className="mt-14">
+            <h2 className="font-display text-2xl font-semibold tracking-tight">
+              Technology
+            </h2>
+            <div className="mt-5 flex flex-wrap gap-2">
+              {project.stack.map((item) => (
+                <span
+                  key={item}
+                  className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-sm text-muted"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+          </section>
+        </BlurFade>
       </article>
     </main>
   )

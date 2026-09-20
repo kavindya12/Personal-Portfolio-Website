@@ -1,6 +1,9 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
 import { Button } from '../components/Button'
+import { AnimatedShinyText } from '../components/magicui/animated-shiny-text'
+import { BorderBeam } from '../components/magicui/border-beam'
+import { TextAnimate } from '../components/magicui/text-animate'
 import { Marquee } from '../components/Marquee'
 import { site } from '../data/site'
 import { easeOut, fadeUp, stagger } from '../lib/motion'
@@ -19,22 +22,26 @@ export function Hero() {
           <motion.p
             variants={fadeUp}
             transition={{ duration: 0.7, ease: easeOut }}
-            className="mb-6 text-[11px] font-medium tracking-[0.28em] text-muted uppercase"
+            className="mb-6 text-[11px] font-medium tracking-[0.28em] uppercase"
           >
-            {site.role}
+            <AnimatedShinyText className="text-[11px] tracking-[0.28em] uppercase">
+              {site.role}
+            </AnimatedShinyText>
           </motion.p>
-          <motion.h1
-            variants={fadeUp}
-            transition={{ duration: 0.7, ease: easeOut }}
-            className="font-display text-[2.75rem] font-medium tracking-[-0.04em] text-foreground sm:text-6xl lg:text-[4.4rem] lg:leading-[0.98]"
-          >
-            {site.displayName.split(' ')[0]}.
-            <span className="mt-3 block text-white/90">
-              Building product
-              <br />
-              interfaces in React.
-            </span>
-          </motion.h1>
+          <h1 className="font-display text-[2.75rem] font-medium tracking-[-0.04em] text-foreground sm:text-6xl lg:text-[4.4rem] lg:leading-[0.98]">
+            <TextAnimate as="span" by="word" startOnView={false} className="block">
+              {`${site.displayName.split(' ')[0]}.`}
+            </TextAnimate>
+            <TextAnimate
+              as="span"
+              by="line"
+              delay={0.18}
+              startOnView={false}
+              className="mt-3 block text-white/90"
+            >
+              {'Building product\ninterfaces in React.'}
+            </TextAnimate>
+          </h1>
           <motion.p
             variants={fadeUp}
             transition={{ duration: 0.7, ease: easeOut }}
@@ -73,9 +80,9 @@ export function Hero() {
         </motion.div>
 
         <motion.div
-          initial={reduceMotion ? false : { opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.85, ease: easeOut, delay: 0.1 }}
+          initial={reduceMotion ? false : { opacity: 0, y: 24, filter: 'blur(12px)' }}
+          animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+          transition={{ duration: 0.9, ease: easeOut, delay: 0.12 }}
           className="relative mx-auto w-full max-w-[380px] lg:max-w-none"
         >
           <div
@@ -92,6 +99,7 @@ export function Hero() {
               className="profile-photo aspect-[4/5] h-auto w-full object-cover object-[center_8%] grayscale-[18%] transition duration-500 hover:grayscale-0"
             />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#070b14]/25 via-transparent to-transparent" />
+            <BorderBeam size={120} duration={9} borderWidth={1.5} />
           </div>
         </motion.div>
       </div>
